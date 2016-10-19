@@ -1,0 +1,43 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#menu a").click(function( e ){
+			e.preventDefault();
+			var href = $( this ).attr('href');
+			$("#content").load( href +" #content");						
+		});
+		
+			var loading = $(
+				'<img id="loading" alt="Carregando" title="Carregando" src="loading.gif" />'
+				).appendTo('#content').hide()
+				loading.ajaxStart(function(){
+					$(this).show();
+				});
+				loading.ajaxStop(function(){
+					$(this).hide();
+				});
+	});
+	</script>
+<style>
+	.teste{
+  width: 200px;
+  height: 200px;
+  background-size: cover !important;
+  background: url('http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_blue_512.gif');
+}
+	</style>	
+</head>
+<body>
+	<ul id="menu">
+		<li><a href="index.html">Home</a></li>
+		<li><a href="fotos.html">Fotos</a></li>
+		<li><a href="contato.html">Contato</a></li>
+	</ul><!-- /menu -->
+	<div id="content">
+		<h1>Bem Vindo!</h1>
+		<p>Essa eh a home desse nome pseudo-site.</p>
+	</div><!-- /content -->
+</body>
+</html>
